@@ -1,6 +1,6 @@
 ---
 title: "An introduction to managing git access securely using 1Password"
-date: 2026-04-02 04:00:00 -0400
+date: 2026-04-02 03:03:00 -0400
 categories: [Developer Tools]
 tags: [git, ssh, 1password, security, github]
 toc: true
@@ -97,18 +97,13 @@ The Windows agent uses the named pipe `\\.\pipe\openssh-ssh-agent` — no `SSH_A
 
 ## Step 4: Configure your SSH client
 
-After enabling the agent, your SSH client needs to know where to find it.
+After enabling the agent, your SSH client needs to know where to find it. There are two ways — an environment variable or an SSH config entry. **The environment variable is the recommended approach** because it works globally and keeps `~/.ssh/config` free for per-host overrides (which you'll want if you later manage [multiple Git identities](/posts/managing-multiple-git-accounts-securely-using-1password/)).
 
 ### macOS
 
-Add to `~/.ssh/config`:
+#### Option A: Environment variable (recommended)
 
-```config
-Host *
-  IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
-```
-
-Alternatively, set the environment variable in your shell profile (`~/.zshrc` or `~/.bashrc`):
+Add to your shell profile (`~/.zshrc` or `~/.bashrc`):
 
 ```shell
 export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
@@ -120,8 +115,20 @@ export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agen
 > mkdir -p ~/.1password && ln -s ~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock ~/.1password/agent.sock
 > ```
 >
-> Then use `~/.1password/agent.sock` everywhere.
+> Then use `export SSH_AUTH_SOCK=~/.1password/agent.sock` instead.
 {: .prompt-tip }
+
+#### Option B: SSH config
+
+Add to `~/.ssh/config`:
+
+```config
+Host *
+  IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+```
+
+> If you plan to set up multiple Git identities later, prefer Option A. The multi-account setup uses per-host blocks in `~/.ssh/config`, and having a `Host *` with `IdentityAgent` there can create a conflict.
+{: .prompt-info }
 
 ### Windows
 
@@ -129,17 +136,21 @@ No configuration needed — 1Password automatically registers as the SSH agent v
 
 ### Linux
 
+#### Option A: Environment variable (recommended)
+
+Add to your shell profile (`~/.bashrc` or `~/.zshrc`):
+
+```shell
+export SSH_AUTH_SOCK=~/.1password/agent.sock
+```
+
+#### Option B: SSH config
+
 Add to `~/.ssh/config`:
 
 ```config
 Host *
   IdentityAgent ~/.1password/agent.sock
-```
-
-Or set in your shell profile:
-
-```shell
-export SSH_AUTH_SOCK=~/.1password/agent.sock
 ```
 
 ## Step 5: Verify the setup

@@ -1,6 +1,6 @@
 ---
 title: "Moving to Cloudflare Pages"
-date: 2026-04-02 03:00:00 -0400
+date: 2026-04-02 03:01:00 -0400
 categories: [Infrastructure]
 tags: [cloudflare, jekyll, github-pages, migration]
 toc: true

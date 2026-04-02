@@ -1,14 +1,17 @@
 ---
 title: "Managing multiple git accounts securely using 1Password"
-date: 2026-04-02 04:00:00 -0400
+date: 2026-04-02 03:02:00 -0400
 categories: [Developer Tools]
 tags: [git, ssh, 1password, github, productivity]
 toc: true
 ---
 
-If you work with multiple GitHub accounts  -  say, a personal account and a work account  -  on the same machine, you've probably run into the problem where `git` always authenticates as the same identity. This post covers how to set up per-account SSH keys managed by 1Password, so each Git remote authenticates with the right identity automatically.
+If you work with multiple GitHub accounts  -  say, a personal account and a work account  -  on the same machine, you've probably run into the problem where `git` always authenticates as the same identity. This post covers how to set up per-account SSH keys so each Git remote authenticates with the right identity automatically.
 
-> This post assumes you already have 1Password's SSH agent set up. If not, start with the [introduction to managing Git access securely using 1Password](/posts/an-introduction-to-managing-git-access-securely-using-1password/) first.
+> **This approach isn't specific to 1Password.** SSH host aliases and per-account keys are the standard way to manage multiple Git identities — with or without a password manager. The only difference here is that 1Password acts as the key provider (private keys stay in the vault, never on disk) instead of using plain files in `~/.ssh/`. If you use on-disk keys, the SSH config is identical — just point `IdentityFile` at your private key files instead of public keys.
+{: .prompt-info }
+>
+> This post builds on the [introduction to managing Git access securely using 1Password](/posts/an-introduction-to-managing-git-access-securely-using-1password/) - make sure you have that set up first, since we'll be relying on 1Password's SSH agent to hold our keys and sign authentication requests.
 {: .prompt-info }
 
 ## How it works
