@@ -19,7 +19,7 @@ social:
     - https://github.com/tsarthak
 
 theme_mode:
-avatar:
+avatar: /assets/img/avatar.png
 toc: true
 
 comments:
