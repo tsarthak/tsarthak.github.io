@@ -1,3 +1,6 @@
+# Use mise to ensure correct Ruby version
+set shell := ["mise", "x", "--", "bash", "-c"]
+
 # Default recipe: list available commands
 default:
     @just --list
