@@ -1,6 +1,6 @@
 ---
 title: "Managing multiple git accounts securely using 1Password"
-date: 2026-04-02 03:02:00 -0400
+date: 2026-04-02 03:03:00 -0400
 categories: [Developer Tools]
 tags: [git, ssh, 1password, github, productivity]
 toc: true
