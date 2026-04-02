@@ -32,10 +32,10 @@ Not much, honestly:
 
 In the Cloudflare dashboard: Workers & Pages → Create → Connect to Git → pick the repo. Build settings:
 
-| Setting | Value |
-|---|---|
-| Build command | `bundle exec jekyll build` |
-| Output directory | `_site` |
+| Setting          | Value                      |
+| ---------------- | -------------------------- |
+| Build command    | `bundle exec jekyll build` |
+| Output directory | `_site`                    |
 
 Three environment variables are critical:
 
