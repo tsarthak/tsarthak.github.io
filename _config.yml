@@ -1,13 +1,13 @@
 theme: jekyll-theme-chirpy
 
 lang: en
-timezone:
+timezone: America/New_York
 
-title: Sarthak's homepage
-tagline: Bookmark this to keep an eye on my project updates!
-description: Sarthak's personal homepage.
+title: off by one
+tagline: tech dumps, quickies, and the occasional deep dive
+description: Sarthak's homepage
 
-url: "https://tsarthak.github.io"
+url: "https://tsarthak.pages.dev"
 
 github:
   username: tsarthak
