@@ -1,3 +1,6 @@
-theme: jekyll-theme-chirpy
+remote_theme: cotes2004/jekyll-theme-chirpy
+
+plugins:
+  - jekyll-remote-theme
 title: Sarthak's homepage
 description: Bookmark this to keep an eye on my project updates!
