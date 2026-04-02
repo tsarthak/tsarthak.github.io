@@ -1,6 +1,6 @@
 ---
 title: "An introduction to managing git access securely using 1Password"
-date: 2026-04-02 06:00:00 -0400
+date: 2026-04-02 04:00:00 -0400
 categories: [Developer Tools]
 tags: [git, ssh, 1password, security, github]
 toc: true
