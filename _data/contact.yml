@@ -2,6 +2,11 @@
 
 - type: github
   icon: "fab fa-github"
+  url: "https://github.com/tsarthak"
+
+- type: github
+  icon: "fab fa-github"
+  url: "https://github.com/sarthak-tickoo-jpmc"
 
 - type: linkedin
   icon: "fab fa-linkedin"
@@ -9,8 +14,4 @@
 
 - type: email
   icon: "fas fa-envelope"
-  noblank: true
-
-- type: rss
-  icon: "fas fa-rss"
   noblank: true
